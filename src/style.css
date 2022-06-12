@@ -7,13 +7,20 @@ body {
 hr {
   margin-top: 20px;
 }
-p.signature {
+p.signature,
+.open-source-code-link {
   text-align: center;
-  color: white;
   margin: 0;
   font-weight: 500;
 }
 
+p.signature {
+  color: white;
+}
+
+.open-source-code-link {
+  color: #d5eeff;
+}
 .background-video {
   width: 100vw;
   height: 100vh;
