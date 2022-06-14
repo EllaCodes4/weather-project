@@ -81,28 +81,37 @@
 
       <div class="weather">
         <div class="row">
-          <div class="col-sm first-column">
-            <div class="temperature" id="temperature"></div>
+          <div class="col-6 first-column">
+            <img
+              src="http://openweathermap.org/img/wn/10d@2x.png"
+              alt=""
+              id="weather-icon"
+            />
+            <span class="temperature" id="temperature">90</span>
             <span class="units" id="units">
               <a href="#" class="unit-links" id="fahrenheit-link">F</a> |
               <a href="#" class="unit-links" id="celseius-link">C</a>
             </span>
-
             <div class="current-datetime" id="current-datetime">
               <i class="fa-solid fa-calendar-day"></i>
             </div>
-            <div class="location" id="current-location"></div>
+            <div class="location" id="current-location">Fort Walton Beach</div>
           </div>
 
-          <div class="col-sm second-column">
-            <div class="weather-description" id="weather-description"></div>
-            <div class="feels-like">
-              Feels like: <span class="feels-like" id="feels-like"></span>°
-            </div>
-            <div class="high-low-temp">
-              H:
-              <span id="high-temp"></span>° | L: <span id="low-temp"></span>°
-            </div>
+          <div class="col-6 second-column">
+            <ul>
+              <li class="weather-description" id="weather-description">
+                Clear Sky
+              </li>
+              <li class="feels-like">
+                Feels like: <span class="feels-like" id="feels-like">100</span>°
+              </li>
+              <li class="high-low-temp">
+                H:<span id="high-temp"></span>° | L:
+                <span id="low-temp"></span>°
+              </li>
+            </ul>
+
             <br />
             <div class="btn-group">
               <button

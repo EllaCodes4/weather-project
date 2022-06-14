@@ -43,8 +43,6 @@ function handleSubmit(event) {
   search(city);
 }
 
-search("San Francisco");
-
 //Current Location Button
 function getCurrentLocation(position) {
   let apiKey = "39b37e744d3d61db56e033dc0b8a5694";
@@ -66,6 +64,12 @@ function updateWeather(response) {
   let lowTemp = Math.round(response.data.main.temp_min);
   let humidity = Math.round(response.data.main.humidity);
   let windSpeed = Math.round(response.data.wind.speed);
+  let weatherIcon = document.querySelector("#weather-icon");
+
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 
   let temperatureDisplayed = document.querySelector("#temperature");
   temperatureDisplayed.innerHTML = `${temperature}°`;
