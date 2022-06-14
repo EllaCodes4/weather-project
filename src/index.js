@@ -56,6 +56,7 @@ function getCurrentLocation(position) {
 
 // Updates weather--temp, weather description, highs/lows, etc
 function updateWeather(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
   let weatherDescription = response.data.weather[0].description;
@@ -68,7 +69,7 @@ function updateWeather(response) {
 
   weatherIcon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 
   let temperatureDisplayed = document.querySelector("#temperature");
@@ -98,7 +99,6 @@ function getCurrentPosition(event) {
 }
 
 function showHumidity(response) {
-  console.log(response.data);
   let humidityButton = document.querySelector("#humidity");
   let humidity = Math.round(response.data.main.humidity);
   humidityButton.innerHTML = `Humidity: ${humidity}%`;
