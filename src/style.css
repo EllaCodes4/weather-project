@@ -60,18 +60,19 @@ p.signature {
 }
 
 .search-button:hover,
-.button-group:hover,
 .current-location-button:hover {
   color: white;
   background: #458d97;
   border: 1px solid white;
 }
 
-.button-group {
+.button-group,
+.button-group:hover {
   background-color: #d5eeff;
   color: #2c5d63;
   border: 1px solid #2c5d63;
   margin-top: 5px;
+  cursor: default;
 }
 
 .weather {

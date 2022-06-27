@@ -92,60 +92,17 @@ function updateWeather(response) {
 
   let lowTempElement = document.querySelector("#low-temp");
   lowTempElement.innerHTML = `${lowTemp}`;
+
+  let humidityButton = document.querySelector("#humidity");
+  humidityButton.innerHTML = `Humidity: ${humidity}%`;
+
+  document.querySelector("#wind").innerHTML = `Wind: ${windSpeed} mph`;
 }
 
 function getCurrentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(getCurrentLocation);
 }
-
-function showHumidity(response) {
-  let humidityButton = document.querySelector("#humidity");
-  let humidity = Math.round(response.data.main.humidity);
-  humidityButton.innerHTML = `Humidity: ${humidity}%`;
-}
-
-function showWind(response) {
-  let windSpeed = Math.round(response.data.wind.speed);
-  document.querySelector("#wind").innerHTML = `Wind: ${windSpeed} mph`;
-}
-
-function getHumidity(city) {
-  let apiKey = "39b37e744d3d61db56e033dc0b8a5694";
-  let unit = "imperial";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(showHumidity);
-}
-
-function getWind(city) {
-  let apiKey = "39b37e744d3d61db56e033dc0b8a5694";
-  let unit = "imperial";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(showWind);
-}
-
-function handleHumidityClick(event) {
-  event.preventDefault();
-  let city = document.querySelector("#search-input").value;
-  getHumidity(city);
-}
-
-function handleWindClick(event) {
-  event.preventDefault();
-  let city = document.querySelector("#search-input").value;
-  getWind(city);
-}
-
-//Button group VARIABLES
-let humidityButton = document.querySelector("#humidity");
-humidityButton.addEventListener("click", handleHumidityClick);
-
-let windButton = document.querySelector("#wind");
-windButton.addEventListener("click", handleWindClick);
-
-//Current location button VARIABLES
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentPosition);
 
 //Add C and F links
 function showCelseiusTemperature(event) {
@@ -167,6 +124,7 @@ function showFahrenheitTemperature(event) {
 }
 
 //VARIABLES
+
 // Add current day, time, date
 let currentDateTime = document.querySelector("#current-datetime");
 let now = new Date();
@@ -175,6 +133,10 @@ currentDateTime.innerHTML = formatDate(now);
 //Search VARIABLES
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
+
+//Current location button VARIABLES
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentPosition);
 
 //Add C and F links
 let fahrenheitTemperature = null;
