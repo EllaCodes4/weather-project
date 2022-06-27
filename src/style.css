@@ -98,15 +98,24 @@ p.signature {
   right: -119px;
 }
 
-.unit-links {
-  text-decoration: none;
+.units-link {
   color: #d5eeff;
 }
-
-.unit-links:hover,
+.units-link:hover,
 .open-source-code-link:hover {
   color: white;
   text-decoration: underline;
+}
+
+.active {
+  color: white;
+  cursor: default;
+  text-decoration: none;
+}
+
+.active:hover {
+  text-decoration: none;
+  color: white;
 }
 
 .current-datetime {

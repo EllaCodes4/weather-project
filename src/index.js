@@ -66,6 +66,7 @@ function updateWeather(response) {
   let humidity = Math.round(response.data.main.humidity);
   let windSpeed = Math.round(response.data.wind.speed);
   let weatherIcon = document.querySelector("#weather-icon");
+  fahrenheitTemperature = Math.round(response.data.main.temp);
 
   weatherIcon.setAttribute(
     "src",
@@ -149,14 +150,20 @@ currentLocationButton.addEventListener("click", getCurrentPosition);
 //Add C and F links
 function showCelseiusTemperature(event) {
   event.preventDefault();
+  let celseiusTemperature = Math.round(((fahrenheitTemperature - 32) * 5) / 9);
   let temperatureDisplayed = document.querySelector("#temperature");
-  temperatureDisplayed.innerHTML = `32°`;
+  celseiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  fahrenheitLink.classList.add("units-link");
+  temperatureDisplayed.innerHTML = `${celseiusTemperature}°`;
 }
 
 function showFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureDisplayed = document.querySelector("#temperature");
-  temperatureDisplayed.innerHTML = `90°`;
+  fahrenheitLink.classList.add("active");
+  celseiusLink.classList.remove("active");
+  temperatureDisplayed.innerHTML = `${fahrenheitTemperature}°`;
 }
 
 //VARIABLES
@@ -170,6 +177,8 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
 //Add C and F links
+let fahrenheitTemperature = null;
+
 let celseiusLink = document.querySelector("#celseius-link");
 celseiusLink.addEventListener("click", showCelseiusTemperature);
 
