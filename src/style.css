@@ -48,15 +48,22 @@ p.signature {
 .container {
   margin: 0 auto;
   margin-top: 50px;
-  padding: 30px 30px 20px 30px;
+  padding: 5px 30px 20px 30px;
   border-radius: 20px;
   max-width: 700px;
   background: #2c5d63;
   opacity: 0.9;
 }
 
+.current-location-button {
+  position: relative;
+  bottom: -38px;
+}
+
 .search-bar {
   margin-bottom: 20px;
+  position: relative;
+  right: -61px;
 }
 
 .search-button:hover,
