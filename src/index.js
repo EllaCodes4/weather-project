@@ -28,6 +28,34 @@ function formatDate(date) {
   return `<i class="fa-solid fa-calendar-day"></i> ${day}, ${month} ${currentDate}, ${hours}:${minutes}`;
 }
 
+//Forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col-2">
+            <div class="forecast-day">${day}</div>
+            <img
+              src="http://openweathermap.org/img/wn/02d@2x.png"
+              class="forecast-weather-icon"
+              alt=""
+              width="80px"
+            />
+            <div class="forecast-temperatures">
+              <span class="forecast-high-temperature">90</span>° /
+              <span class="forecast-low-temperature">86</span>°
+            </div>
+          </div>
+        `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //Search engine
 function search(city) {
   let apiKey = "39b37e744d3d61db56e033dc0b8a5694";
@@ -147,4 +175,5 @@ celseiusLink.addEventListener("click", showCelseiusTemperature);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
+displayForecast();
 search("New York");
