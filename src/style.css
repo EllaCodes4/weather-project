@@ -10,7 +10,7 @@ ul {
   margin: 0;
 }
 
-img {
+.weather-icon {
   float: right;
   position: relative;
   right: 73px;
@@ -147,18 +147,12 @@ p.signature {
   text-transform: capitalize;
 }
 
-.five-day-forcast {
+.weather-forecast {
   margin: 20px 0px 20px 0;
   font-size: 18px;
+  text-align: center;
 }
 
-.day {
-  font-size: 30px;
-}
-
-i.forecast-icon {
-  font-size: 40px;
-  padding: 30px 0 20px 0;
-  position: relative;
-  left: 5px;
+.forecast-day {
+  font-size: 25px;
 }
