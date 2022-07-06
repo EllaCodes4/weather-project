@@ -34,10 +34,45 @@ function formatForecastDay(timestamp) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 }
-
+function changeBackgroundVideo(response) {
+  let weatherIcon = response;
+  let backgroundVideo = document.querySelector("#background-video");
+  if (weatherIcon === "01d") {
+    backgroundVideo.setAttribute("src", `videos/sun-shining.mp4`);
+    document.getElementById("container").style.backgroundColor =
+      "rgb(44, 93, 99)";
+  } else if (
+    weatherIcon === "02d" ||
+    weatherIcon === "02n" ||
+    weatherIcon === "03d" ||
+    weatherIcon === "03n" ||
+    weatherIcon === "04d" ||
+    weatherIcon === "04n"
+  ) {
+    backgroundVideo.setAttribute("src", `videos/cloudy-sky.mp4`);
+    document.getElementById("container").style.backgroundColor =
+      "rgb(60, 137, 206)";
+  } else if (
+    weatherIcon === "09d" ||
+    weatherIcon === "09n" ||
+    weatherIcon === "10d" ||
+    weatherIcon === "10n" ||
+    weatherIcon === "11d" ||
+    weatherIcon === "11n"
+  ) {
+    backgroundVideo.setAttribute("src", `videos/rain2.mp4`);
+    document.getElementById("container").style.backgroundColor =
+      "rgb(44, 93, 99)";
+  } else if (weatherIcon === "13d" || "13n") {
+    backgroundVideo.setAttribute("src", `videos/snow.mp4`);
+    document.getElementById("container").style.backgroundColor =
+      "rgb(44, 93, 99)";
+  }
+}
 //Forecast
 function displayForecast(response) {
-  let forecast = response.data.daily;
+   let forecast = response.data.daily;
+  console.log(forecast);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
 
@@ -48,7 +83,7 @@ function displayForecast(response) {
         ` <div class="col">
             <div class="forecast-day">${formatForecastDay(forecastDay.dt)}</div>
             <img
-              src="http://openweathermap.org/img/wn/${
+              src="https://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
               }@2x.png"
               class="forecast-weather-icon"
@@ -70,6 +105,9 @@ function displayForecast(response) {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+
+  let weatherIcon = response.data.current.weather[0].icon;
+  changeBackgroundVideo(weatherIcon);
 }
 
 //Search engine
