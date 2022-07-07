@@ -69,15 +69,15 @@ p.signature {
 .search-button:hover,
 .current-location-button:hover {
   color: white;
-  background: #458d97;
+  background: #4b5259;
   border: 1px solid white;
 }
 
 .button-group,
 .button-group:hover {
   background-color: white;
-  color: #2c5d63;
-  border: 1px solid #2c5d63;
+  color: #4b5259;
+  border: 1px solid #4b5259;
   margin-top: 5px;
   cursor: default;
 }

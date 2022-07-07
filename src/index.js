@@ -36,11 +36,20 @@ function formatForecastDay(timestamp) {
 }
 function changeBackgroundVideo(response) {
   let weatherIcon = response;
+  console.log(weatherIcon);
   let backgroundVideo = document.querySelector("#background-video");
   if (weatherIcon === "01d") {
     backgroundVideo.setAttribute("src", `videos/sun-shining.mp4`);
     document.getElementById("container").style.backgroundColor =
       "rgb(44, 93, 99)";
+  } else if (weatherIcon === "01n") {
+    backgroundVideo.setAttribute("src", `videos/clear-night.mp4`);
+    document.getElementById("container").style.backgroundColor =
+      "rgb(69, 93, 122)";
+  } else if (weatherIcon === "50d" || weatherIcon === "50n") {
+    backgroundVideo.setAttribute("src", `videos/fog.mp4`);
+    document.getElementById("container").style.backgroundColor =
+      "rgb(89, 110, 121)";
   } else if (
     weatherIcon === "02d" ||
     weatherIcon === "02n" ||
@@ -51,7 +60,7 @@ function changeBackgroundVideo(response) {
   ) {
     backgroundVideo.setAttribute("src", `videos/cloudy-sky.mp4`);
     document.getElementById("container").style.backgroundColor =
-      "rgb(60, 137, 206)";
+      "rgb(11, 117, 213)";
   } else if (
     weatherIcon === "09d" ||
     weatherIcon === "09n" ||
@@ -66,12 +75,12 @@ function changeBackgroundVideo(response) {
   } else if (weatherIcon === "13d" || "13n") {
     backgroundVideo.setAttribute("src", `videos/snow.mp4`);
     document.getElementById("container").style.backgroundColor =
-      "rgb(44, 93, 99)";
+      "rgb(37, 22, 27)";
   }
 }
 //Forecast
 function displayForecast(response) {
-   let forecast = response.data.daily;
+  let forecast = response.data.daily;
   console.log(forecast);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
