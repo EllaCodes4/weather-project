@@ -13,6 +13,7 @@ function formatDate(date) {
     "Jul",
     "Aug",
     "Sep",
+    "Oct",
     "Nov",
     "Dec",
   ];
@@ -36,7 +37,6 @@ function formatForecastDay(timestamp) {
 }
 function changeBackgroundVideo(response) {
   let weatherIcon = response;
-  console.log(weatherIcon);
   let backgroundVideo = document.querySelector("#background-video");
   if (weatherIcon === "01d") {
     backgroundVideo.setAttribute("src", `videos/sun-shining.mp4`);
